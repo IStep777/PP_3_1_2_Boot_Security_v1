@@ -2,41 +2,23 @@ package ru.kata.spring.boot_security.demo.services;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.Role;
+import ru.kata.spring.boot_security.demo.model.User;
+import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
 
 @Service
-@Transactional
-@Repository
 public class RoleService {
 
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private RoleRepository roleRepository;
 
     public List<Role> getAllRoles() {
-        return entityManager.createQuery("select r from Role r", Role.class).getResultList();
+        return roleRepository.findAll();
     }
 
-
-    public Role getRoleForName(String name) {
-        return entityManager.createQuery("select r from Role r where r.role =: role", Role.class)
-                .setParameter("role", name).getSingleResult();
-    }
-
-
-    public Role getRoleById(Long id) {
-        return entityManager.find(Role.class, id);
-    }
-
-
-    public void addRole(Role role) {
-        entityManager.persist(role);
-    }
 }
 

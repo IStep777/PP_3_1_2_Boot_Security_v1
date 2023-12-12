@@ -51,14 +51,14 @@ public class AdminController {
     }
 
     @RequestMapping("/updateInfo")
-    public String updateUser(@RequestParam("userId") int id, Model model) {
+    public String updateUser(@RequestParam("userId") Long id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "user-info";
     }
 
 
     @RequestMapping("deleteUser")
-    public String deleteUser(@RequestParam("userId") int id) {
+    public String deleteUser(@RequestParam("userId") Long id) {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
