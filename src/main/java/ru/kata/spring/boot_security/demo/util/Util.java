@@ -32,7 +32,7 @@ public class Util {
 
         Set<Role> adminSet = new HashSet<>();
         adminSet.add(admin);
-        // adminSet.add(user);
+        adminSet.add(user);
 
         Set<Role> userSet = new HashSet<>();
         userSet.add(user);
