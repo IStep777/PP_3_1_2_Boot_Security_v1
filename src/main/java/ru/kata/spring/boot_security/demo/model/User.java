@@ -1,14 +1,11 @@
 package ru.kata.spring.boot_security.demo.model;
 
 
-import org.hibernate.annotations.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
